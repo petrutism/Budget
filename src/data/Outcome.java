@@ -1,17 +1,22 @@
 package data;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Outcome {
+
+    public static int outcomeCount = 0;
+
+    private final Integer number;
     private final BigDecimal sum;
-    private final LocalDateTime date;
+    private final LocalDate date;
     private final OutcomeCategory category;
     private final OutcomeType type;
     private final Person person;
     private final TransferStatus status;
 
-    public Outcome(BigDecimal sum, OutcomeCategory category, OutcomeType type) {
+    public Outcome(int number, BigDecimal sum, OutcomeCategory category, OutcomeType type) {
+        this.number = number;
         this.sum = sum;
         this.date = null;
         this.category = category;
@@ -21,7 +26,8 @@ public class Outcome {
 
     }
 
-    public Outcome(BigDecimal sum, LocalDateTime date, OutcomeCategory category, OutcomeType type, Person person, TransferStatus status) {
+    public Outcome(int number, BigDecimal sum, LocalDate date, OutcomeCategory category, OutcomeType type, Person person, TransferStatus status) {
+        this.number = number;
         this.sum = sum;
         this.date = date;
         this.category = category;
@@ -34,7 +40,7 @@ public class Outcome {
         return sum;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -52,5 +58,22 @@ public class Outcome {
 
     public TransferStatus getStatus() {
         return status;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    @Override
+    public String toString() {
+        return "Outcome{" +
+                "number=" + number +
+                ", sum=" + sum +
+                ", date=" + date +
+                ", category=" + category +
+                ", type=" + type +
+                ", person=" + person +
+                ", status=" + status +
+                '}';
     }
 }

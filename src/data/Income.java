@@ -4,14 +4,19 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Income {
-    private final BigDecimal sum;
+
+   public static int incomeCount = 0;
+
+   private final Integer number;
+   private final BigDecimal sum;
     private final LocalDate date;
     private final IncomeCategory category;
     private final boolean isBankTransfer;
     private final Person person;
     private final TransferStatus transferStatus;
 
-    public Income(BigDecimal sum, LocalDate date, IncomeCategory category, boolean isBankTransfer, Person person, TransferStatus transferStatus) {
+    public Income(int number, BigDecimal sum, LocalDate date, IncomeCategory category, boolean isBankTransfer, Person person, TransferStatus transferStatus) {
+        this.number = number;
         this.sum = sum;
         this.date = date;
         this.category = category;
@@ -42,5 +47,22 @@ public class Income {
 
     public TransferStatus getTransferStatus() {
         return transferStatus;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    @Override
+    public String toString() {
+        return "Income {" +
+                "number=" + number +
+                ", sum=" + sum +
+                ", date=" + date +
+                ", category=" + category +
+                ", isBankTransfer=" + isBankTransfer +
+                ", person=" + person +
+                ", transferStatus=" + transferStatus +
+                '}';
     }
 }
