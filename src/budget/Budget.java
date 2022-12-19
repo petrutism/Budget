@@ -29,25 +29,31 @@ class Budget {
         outcomes.add(outcome);
     }
 
-    void deleteIncome(int number) {
+    boolean incomeDeleted(int number) {
         for (Income income : incomes) {
             if (income.getNumber() == number) {
                 incomes.remove(income);
-                break;
+
+                return incomes.remove(income);
             }
         }
+
+        return false;
     }
 
-    void deleteOutcome(int number) {
+    boolean outcomeDeleted(int number) {
         for (Outcome outcome : outcomes) {
             if (outcome.getNumber() == number) {
-                incomes.remove(outcome);
-                break;
+
+                return outcomes.remove(outcome);
             }
         }
+
+        return false;
     }
 
     List<Income> getSomeIncome(IncomeCategory category, LocalDate date) {
+
         if (incomeResults == null) {
             incomeResults = new ArrayList<>();
         }
@@ -62,6 +68,7 @@ class Budget {
     }
 
     List<Outcome> getSomeOutcome(OutcomeCategory category, LocalDate date) {
+
         if (outcomeResults == null) {
             outcomeResults = new ArrayList<>();
         }
@@ -86,14 +93,18 @@ class Budget {
     }
 
     double getBalance() {
-        Double incomeSum = 0d;
-        for (Income income : incomes) {
-            incomeSum += income.getSum().doubleValue();
+        double incomeSum = 0d;
+        if (getAllIncomes() != null) {
+            for (Income income : incomes) {
+                incomeSum += income.getSum().doubleValue();
+            }
         }
 
-        Double outcomeSum = 0d;
-        for (Outcome outcome : outcomes) {
-            outcomeSum += outcome.getSum().doubleValue();
+        double outcomeSum = 0d;
+        if (getAllOutcomes() != null) {
+            for (Outcome outcome : outcomes) {
+                outcomeSum += outcome.getSum().doubleValue();
+            }
         }
 
         return incomeSum - outcomeSum;
