@@ -1,4 +1,4 @@
-package data;
+package budget.data;
 
 public record Person(String name, String surname, int age) {
 }

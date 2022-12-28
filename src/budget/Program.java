@@ -1,7 +1,7 @@
 package budget;
 
 
-import data.*;
+import budget.data.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -268,13 +268,15 @@ public class Program {
     }
 
     private int onlyNumber(Scanner sc) {
+        String s;
         while (true) {
             try {
                 System.out.println("Input number: ");
-                String s = sc.nextLine();
+                s = sc.nextLine();
                 return Integer.parseInt(s);
             } catch (NumberFormatException nfe) {
                 System.out.println("Wrong format, numbers only please...");
+                sc.nextLine();
             }
         }
     }

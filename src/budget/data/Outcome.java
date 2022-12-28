@@ -1,4 +1,4 @@
-package data;
+package budget.data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

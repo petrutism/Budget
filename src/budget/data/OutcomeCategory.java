@@ -1,4 +1,4 @@
-package data;
+package budget.data;
 
 public enum OutcomeCategory {
     FOOD,

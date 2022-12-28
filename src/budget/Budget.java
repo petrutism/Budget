@@ -1,9 +1,9 @@
 package budget;
 
-import data.Income;
-import data.IncomeCategory;
-import data.Outcome;
-import data.OutcomeCategory;
+import budget.data.Income;
+import budget.data.IncomeCategory;
+import budget.data.Outcome;
+import budget.data.OutcomeCategory;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
